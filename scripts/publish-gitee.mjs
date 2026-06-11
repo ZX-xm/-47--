@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { cpSync, existsSync, mkdirSync, rmSync } from "fs";
+import { cpSync, mkdirSync, readdirSync, rmSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -18,7 +18,10 @@ run("npm run build");
 
 rmSync(workDir, { recursive: true, force: true });
 mkdirSync(workDir, { recursive: true });
-cpSync(join(root, "dist"), workDir, { recursive: true });
+const distDir = join(root, "dist");
+for (const name of readdirSync(distDir)) {
+  cpSync(join(distDir, name), join(workDir, name), { recursive: true });
+}
 
 process.chdir(workDir);
 run("git init");
