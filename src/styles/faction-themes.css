@@ -1,0 +1,712 @@
+/* 赛博阵营主题 — 蜂巢紫 / 智械橙 / 联邦蓝 / 帝国绿 / 祸岛红 / 矩阵青 */
+
+/* ── 阵营选择卡片 ── */
+.select-card--hive {
+  border-color: #7b2cbf;
+  background: linear-gradient(160deg, #120a1e 0%, #0d0614 60%, #1a0a28 100%);
+  box-shadow: inset 0 0 0 1px rgba(176, 38, 255, 0.25), 0 0 20px rgba(123, 44, 191, 0.15);
+}
+.select-card--hive:not(.locked):hover {
+  border-color: #b026ff;
+  box-shadow: 0 0 28px rgba(176, 38, 255, 0.45), inset 0 0 12px rgba(176, 38, 255, 0.08);
+}
+.select-card--hive::before {
+  background: linear-gradient(90deg, #7b2cbf, #b026ff, #00f5ff);
+}
+
+.select-card--mech {
+  border-color: #b45309;
+  background: linear-gradient(160deg, #1a0f06 0%, #0c0804 60%, #1f1208 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 149, 0, 0.25), 0 0 20px rgba(255, 107, 0, 0.12);
+}
+.select-card--mech:not(.locked):hover {
+  border-color: #ff9500;
+  box-shadow: 0 0 28px rgba(255, 149, 0, 0.45), inset 0 0 12px rgba(255, 149, 0, 0.08);
+}
+.select-card--mech::before {
+  background: linear-gradient(90deg, #b45309, #ff9500, #ffd166);
+}
+
+.select-card--federation {
+  border-color: #1864ab;
+  background: linear-gradient(160deg, #0a1020 0%, #040810 60%, #0c1628 100%);
+  box-shadow: inset 0 0 0 1px rgba(77, 171, 247, 0.25), 0 0 20px rgba(34, 139, 230, 0.12);
+}
+.select-card--federation:not(.locked):hover {
+  border-color: #4dabf7;
+  box-shadow: 0 0 28px rgba(77, 171, 247, 0.45), inset 0 0 12px rgba(77, 171, 247, 0.08);
+}
+.select-card--federation::before {
+  background: linear-gradient(90deg, #1864ab, #4dabf7, #91a7ff);
+}
+
+.select-card--empire {
+  border-color: #1a6b42;
+  background: linear-gradient(160deg, #0a1410 0%, #061008 60%, #0c1a12 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 136, 0.2), 0 0 20px rgba(0, 255, 136, 0.1);
+}
+.select-card--empire:not(.locked):hover {
+  border-color: #00ff88;
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.4), inset 0 0 12px rgba(0, 255, 136, 0.08);
+}
+.select-card--empire::before {
+  background: linear-gradient(90deg, #1a6b42, #00ff88, #39ff14);
+}
+
+.select-card--calamity {
+  border-color: #9d0208;
+  background: linear-gradient(160deg, #1a0608 0%, #0a0406 60%, #200810 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 71, 87, 0.25), 0 0 20px rgba(233, 69, 96, 0.12);
+}
+.select-card--calamity:not(.locked):hover {
+  border-color: #ff4757;
+  box-shadow: 0 0 28px rgba(255, 71, 87, 0.45), inset 0 0 12px rgba(255, 71, 87, 0.08);
+}
+.select-card--calamity::before {
+  background: linear-gradient(90deg, #9d0208, #ff4757, #ff6b81);
+}
+
+.select-card--matrix {
+  border-color: #0e7490;
+  background: linear-gradient(160deg, #061018 0%, #040a0c 60%, #081820 100%);
+  box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.25), 0 0 20px rgba(6, 182, 212, 0.12);
+}
+.select-card--matrix:not(.locked):hover {
+  border-color: #22d3ee;
+  box-shadow: 0 0 28px rgba(34, 211, 238, 0.45), inset 0 0 12px rgba(34, 211, 238, 0.08);
+}
+.select-card--matrix::before {
+  background: linear-gradient(90deg, #0e7490, #22d3ee, #67e8f9);
+}
+
+[class*="select-card--"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ── 各阵营变量 ── */
+[data-theme="hive"] {
+  --bg: #06040c;
+  --bg-card: #100818;
+  --border: #3d2060;
+  --text: #ece0ff;
+  --text-muted: #9a7ab8;
+  --neon: #b026ff;
+  --neon-alt: #00f5ff;
+  --accent-secondary: #00f5ff;
+  --accent-glow: rgba(176, 38, 255, 0.45);
+  --overlay-a: rgba(176, 38, 255, 0.18);
+  --overlay-b: rgba(0, 245, 255, 0.08);
+  --grid-color: rgba(176, 38, 255, 0.03);
+  --title-g1: #c77dff;
+  --title-g2: #b026ff;
+  --title-g3: #00f5ff;
+  --title-glow: rgba(176, 38, 255, 0.5);
+  --btn-from: #7b2cbf;
+  --btn-to: #b026ff;
+  --btn-hover-from: #9d4edd;
+  --btn-hover-to: #c77dff;
+  --btn-text: #fff;
+  --map-center: #100818;
+  --player-from: #160c22;
+  --player-to: #100818;
+  --enemy-border: #00ff88;
+  --enemy-from: #0a1410;
+  --enemy-to: #061008;
+  --arena-from: rgba(16, 8, 24, 0.7);
+  --arena-to: rgba(6, 4, 12, 0.95);
+  --hp-from: #5a189a;
+  --hp-mid: #9d4edd;
+  --hp-to: #c77dff;
+  --power-from: #5a189a;
+  --power-to: #9d4edd;
+  --card-cost-bg-from: #2a1050;
+  --card-cost-bg-to: #120818;
+  --target-enemy: #00ff88;
+  --target-enemy-glow: rgba(0, 255, 136, 0.35);
+  --mission-from: #160c22;
+  --mission-mid: #3d2060;
+  --mission-to: #120a1e;
+  --mission-hover-from: #2a1050;
+  --mission-hover-mid: #7b2cbf;
+  --mission-hover-to: #160c22;
+  --hive-badge-label: "蜂巢";
+}
+
+[data-theme="mech"] {
+  --bg: #0c0804;
+  --bg-card: #161008;
+  --border: #8b4513;
+  --text: #fff3e0;
+  --text-muted: #c4a882;
+  --neon: #ff9500;
+  --neon-alt: #ffb347;
+  --accent-secondary: #ffd166;
+  --accent-glow: rgba(255, 149, 0, 0.45);
+  --overlay-a: rgba(255, 149, 0, 0.16);
+  --overlay-b: rgba(255, 209, 102, 0.08);
+  --grid-color: rgba(255, 149, 0, 0.035);
+  --title-g1: #ffd166;
+  --title-g2: #ff9500;
+  --title-g3: #ffb347;
+  --title-glow: rgba(255, 149, 0, 0.5);
+  --btn-from: #b45309;
+  --btn-to: #ff9500;
+  --btn-hover-from: #d97706;
+  --btn-hover-to: #ffb347;
+  --btn-text: #1a0f06;
+  --map-center: #161008;
+  --player-from: #221408;
+  --player-to: #161008;
+  --enemy-border: #22d3ee;
+  --enemy-from: #061018;
+  --enemy-to: #040a0c;
+  --arena-from: rgba(22, 16, 8, 0.7);
+  --arena-to: rgba(12, 8, 4, 0.95);
+  --hp-from: #b45309;
+  --hp-mid: #ff9500;
+  --hp-to: #ffd166;
+  --power-from: #b45309;
+  --power-to: #ff9500;
+  --card-cost-bg-from: #3d2208;
+  --card-cost-bg-to: #161008;
+  --target-enemy: #22d3ee;
+  --target-enemy-glow: rgba(34, 211, 238, 0.35);
+  --mission-from: #221408;
+  --mission-mid: #8b4513;
+  --mission-to: #161008;
+  --mission-hover-from: #b45309;
+  --mission-hover-mid: #ff9500;
+  --mission-hover-to: #221408;
+  --hive-badge-label: "智械";
+}
+
+[data-theme="federation"] {
+  --bg: #040810;
+  --bg-card: #0a1020;
+  --border: #1864ab;
+  --text: #e7f5ff;
+  --text-muted: #74a0c7;
+  --neon: #4dabf7;
+  --neon-alt: #74c0fc;
+  --accent-secondary: #91a7ff;
+  --accent-glow: rgba(77, 171, 247, 0.45);
+  --overlay-a: rgba(77, 171, 247, 0.16);
+  --overlay-b: rgba(145, 167, 255, 0.08);
+  --grid-color: rgba(77, 171, 247, 0.035);
+  --title-g1: #91a7ff;
+  --title-g2: #4dabf7;
+  --title-g3: #74c0fc;
+  --title-glow: rgba(77, 171, 247, 0.5);
+  --btn-from: #1864ab;
+  --btn-to: #4dabf7;
+  --btn-hover-from: #228be6;
+  --btn-hover-to: #74c0fc;
+  --btn-text: #fff;
+  --map-center: #0a1020;
+  --player-from: #0e1628;
+  --player-to: #0a1020;
+  --enemy-border: #ff9500;
+  --enemy-from: #1a0f06;
+  --enemy-to: #0c0804;
+  --arena-from: rgba(10, 16, 32, 0.7);
+  --arena-to: rgba(4, 8, 16, 0.95);
+  --hp-from: #1864ab;
+  --hp-mid: #4dabf7;
+  --hp-to: #74c0fc;
+  --power-from: #1864ab;
+  --power-to: #4dabf7;
+  --card-cost-bg-from: #0c2840;
+  --card-cost-bg-to: #0a1020;
+  --target-enemy: #ff9500;
+  --target-enemy-glow: rgba(255, 149, 0, 0.35);
+  --mission-from: #0e1628;
+  --mission-mid: #1864ab;
+  --mission-to: #0a1020;
+  --mission-hover-from: #1864ab;
+  --mission-hover-mid: #4dabf7;
+  --mission-hover-to: #0e1628;
+  --hive-badge-label: "联邦";
+}
+
+[data-theme="empire"] {
+  --bg: #030806;
+  --bg-card: #0a120e;
+  --border: #1a4d32;
+  --text: #d8ffe8;
+  --text-muted: #6b9a7a;
+  --neon: #00ff88;
+  --neon-alt: #39ff14;
+  --accent-secondary: #39ff14;
+  --accent-glow: rgba(0, 255, 136, 0.4);
+  --overlay-a: rgba(0, 255, 136, 0.14);
+  --overlay-b: rgba(57, 255, 20, 0.08);
+  --grid-color: rgba(0, 255, 136, 0.03);
+  --title-g1: #39ff14;
+  --title-g2: #00ff88;
+  --title-g3: #00d4aa;
+  --title-glow: rgba(0, 255, 136, 0.5);
+  --btn-from: #1a6b42;
+  --btn-to: #00ff88;
+  --btn-hover-from: #2dc653;
+  --btn-hover-to: #39ff14;
+  --btn-text: #030806;
+  --map-center: #0a120e;
+  --player-from: #0e1a14;
+  --player-to: #0a120e;
+  --enemy-border: #b026ff;
+  --enemy-from: #100818;
+  --enemy-to: #06040c;
+  --arena-from: rgba(10, 18, 14, 0.7);
+  --arena-to: rgba(3, 8, 6, 0.95);
+  --hp-from: #1a6b42;
+  --hp-mid: #00ff88;
+  --hp-to: #39ff14;
+  --power-from: #1a6b42;
+  --power-to: #2dc653;
+  --card-cost-bg-from: #0e3020;
+  --card-cost-bg-to: #0a120e;
+  --target-enemy: #b026ff;
+  --target-enemy-glow: rgba(176, 38, 255, 0.35);
+  --mission-from: #0e1a14;
+  --mission-mid: #1a4d32;
+  --mission-to: #0a120e;
+  --mission-hover-from: #1a6b42;
+  --mission-hover-mid: #00ff88;
+  --mission-hover-to: #0e1a14;
+  --hive-badge-label: "帝国";
+}
+
+[data-theme="calamity"] {
+  --bg: #0a0406;
+  --bg-card: #140810;
+  --border: #9d0208;
+  --text: #ffe8ec;
+  --text-muted: #c9929a;
+  --neon: #ff4757;
+  --neon-alt: #ff6b81;
+  --accent-secondary: #ffa8a8;
+  --accent-glow: rgba(255, 71, 87, 0.45);
+  --overlay-a: rgba(255, 71, 87, 0.16);
+  --overlay-b: rgba(255, 107, 129, 0.08);
+  --grid-color: rgba(255, 71, 87, 0.035);
+  --title-g1: #ffa8a8;
+  --title-g2: #ff4757;
+  --title-g3: #ff6b81;
+  --title-glow: rgba(255, 71, 87, 0.5);
+  --btn-from: #9d0208;
+  --btn-to: #ff4757;
+  --btn-hover-from: #c1121f;
+  --btn-hover-to: #ff6b81;
+  --btn-text: #fff;
+  --map-center: #140810;
+  --player-from: #1c0a10;
+  --player-to: #140810;
+  --enemy-border: #39ff14;
+  --enemy-from: #0a1410;
+  --enemy-to: #061008;
+  --arena-from: rgba(20, 8, 16, 0.7);
+  --arena-to: rgba(10, 4, 6, 0.95);
+  --hp-from: #9d0208;
+  --hp-mid: #ff4757;
+  --hp-to: #ff6b81;
+  --power-from: #9d0208;
+  --power-to: #c1121f;
+  --card-cost-bg-from: #3d0810;
+  --card-cost-bg-to: #140810;
+  --target-enemy: #39ff14;
+  --target-enemy-glow: rgba(57, 255, 20, 0.35);
+  --mission-from: #1c0a10;
+  --mission-mid: #9d0208;
+  --mission-to: #140810;
+  --mission-hover-from: #9d0208;
+  --mission-hover-mid: #ff4757;
+  --mission-hover-to: #1c0a10;
+  --hive-badge-label: "祸岛";
+}
+
+[data-theme="matrix"] {
+  --bg: #040a0c;
+  --bg-card: #081820;
+  --border: #0e7490;
+  --text: #e0fffe;
+  --text-muted: #6bbec9;
+  --neon: #22d3ee;
+  --neon-alt: #06b6d4;
+  --accent-secondary: #67e8f9;
+  --accent-glow: rgba(34, 211, 238, 0.45);
+  --overlay-a: rgba(34, 211, 238, 0.16);
+  --overlay-b: rgba(103, 232, 249, 0.08);
+  --grid-color: rgba(34, 211, 238, 0.035);
+  --title-g1: #67e8f9;
+  --title-g2: #22d3ee;
+  --title-g3: #06b6d4;
+  --title-glow: rgba(34, 211, 238, 0.5);
+  --btn-from: #0e7490;
+  --btn-to: #22d3ee;
+  --btn-hover-from: #0891b2;
+  --btn-hover-to: #67e8f9;
+  --btn-text: #041014;
+  --map-center: #081820;
+  --player-from: #0c2028;
+  --player-to: #081820;
+  --enemy-border: #ff006e;
+  --enemy-from: #140818;
+  --enemy-to: #0a040c;
+  --arena-from: rgba(8, 24, 32, 0.7);
+  --arena-to: rgba(4, 10, 12, 0.95);
+  --hp-from: #0e7490;
+  --hp-mid: #22d3ee;
+  --hp-to: #67e8f9;
+  --power-from: #0e7490;
+  --power-to: #0891b2;
+  --card-cost-bg-from: #0a3040;
+  --card-cost-bg-to: #081820;
+  --target-enemy: #ff006e;
+  --target-enemy-glow: rgba(255, 0, 110, 0.35);
+  --mission-from: #0c2028;
+  --mission-mid: #0e7490;
+  --mission-to: #081820;
+  --mission-hover-from: #0e7490;
+  --mission-hover-mid: #22d3ee;
+  --mission-hover-to: #0c2028;
+  --hive-badge-label: "矩阵";
+}
+
+/* ── 赛博共用 UI ── */
+[data-theme] {
+  --cyber-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 20 H40 M20 0 V40' fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+[data-theme]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 10% 0%, var(--overlay-a), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 90% 100%, var(--overlay-b), transparent 50%),
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+    var(--cyber-grid);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px, 40px 40px;
+}
+
+[data-theme] .screen {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme] .screen-title {
+  font-family: "Orbitron", "Noto Sans SC", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.65rem;
+  background: linear-gradient(135deg, var(--title-g1) 0%, var(--title-g2) 45%, var(--title-g3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px var(--title-glow));
+}
+
+[data-theme] .breadcrumb-item.active {
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+[data-theme] .map-status {
+  border-radius: 4px;
+  padding: 10px 20px;
+  backdrop-filter: blur(6px);
+  background: color-mix(in srgb, var(--bg-card) 85%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--neon) 15%, transparent);
+}
+
+[data-theme] .map-status span {
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
+  background: color-mix(in srgb, var(--neon) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon) 20%, transparent);
+}
+
+[data-theme] .map-container {
+  background: radial-gradient(ellipse at center, var(--map-center) 0%, var(--bg) 100%);
+  border-color: var(--border);
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.6),
+    0 0 16px color-mix(in srgb, var(--neon) 10%, transparent);
+}
+
+[data-theme] .map-node-available:hover {
+  filter: brightness(1.3) drop-shadow(0 0 10px var(--neon));
+}
+
+[data-theme] .battle-arena {
+  border-radius: 4px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--arena-from) 0%, var(--arena-to) 100%);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 30px color-mix(in srgb, var(--neon) 8%, transparent);
+}
+
+[data-theme] .battle-arena::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cyber-grid);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+[data-theme] .battle-hand {
+  border-radius: 4px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--border);
+}
+
+[data-theme] .hp-bar {
+  border-radius: 2px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme] .combatant-player {
+  border-color: var(--neon);
+  background: linear-gradient(180deg, var(--player-from) 0%, var(--player-to) 100%);
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--neon) 20%, transparent),
+    inset 0 0 20px color-mix(in srgb, var(--neon) 5%, transparent);
+}
+
+[data-theme] .combatant-player .hp-bar-fill {
+  background: linear-gradient(90deg, var(--hp-from), var(--hp-mid), var(--hp-to));
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+[data-theme] .combatant-enemy {
+  border-color: var(--enemy-border);
+  background: linear-gradient(180deg, var(--enemy-from) 0%, var(--enemy-to) 100%);
+  box-shadow:
+    0 0 16px color-mix(in srgb, var(--enemy-border) 15%, transparent),
+    inset 0 0 16px color-mix(in srgb, var(--enemy-border) 4%, transparent);
+}
+
+[data-theme] .combatant-pupa {
+  border-color: var(--accent-secondary);
+  background: linear-gradient(180deg, var(--player-from) 0%, var(--bg) 100%);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent-secondary) 15%, transparent);
+}
+
+[data-theme] .intent-damage {
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: intent-pulse 1.6s ease-in-out infinite;
+  background: linear-gradient(135deg, #ff006e, #c1121f);
+  box-shadow: 0 0 12px rgba(255, 0, 110, 0.5);
+}
+
+[data-theme] .combat-log {
+  border-radius: 2px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--border);
+}
+
+[data-theme] .btn {
+  border-radius: 2px;
+  font-family: "Orbitron", "Noto Sans SC", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border: 1px solid var(--neon-alt);
+  background: linear-gradient(135deg, var(--btn-from) 0%, var(--btn-to) 100%);
+  color: var(--btn-text);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+[data-theme] .btn:hover {
+  background: linear-gradient(135deg, var(--btn-hover-from) 0%, var(--btn-hover-to) 100%);
+  box-shadow: 0 0 28px var(--accent-glow);
+}
+
+[data-theme] .select-card:not(.locked):hover,
+[data-theme] .mission-card:not(.locked):hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+[data-theme] .battle-card.playable {
+  border-color: var(--neon);
+}
+
+[data-theme] .battle-card.playable:hover {
+  box-shadow:
+    0 8px 28px var(--accent-glow),
+    0 0 0 1px color-mix(in srgb, var(--neon) 40%, transparent);
+}
+
+[data-theme] .battle-card--hive {
+  border-color: var(--accent-secondary);
+  box-shadow: inset 0 0 12px color-mix(in srgb, var(--accent-secondary) 6%, transparent);
+}
+
+[data-theme] .battle-card--hive::after {
+  content: var(--hive-badge-label);
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--neon-alt);
+  background: color-mix(in srgb, var(--accent-secondary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-secondary) 30%, transparent);
+  padding: 1px 5px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  font-family: "Share Tech Mono", monospace;
+}
+
+[data-theme] .battle-card--federation-cyber {
+  border-color: #4da3ff;
+  box-shadow: inset 0 0 12px rgba(77, 163, 255, 0.1);
+}
+
+[data-theme] .battle-card--federation-cyber::after {
+  content: "联邦义体";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #9fd0ff;
+  background: rgba(77, 163, 255, 0.12);
+  border: 1px solid rgba(77, 163, 255, 0.35);
+  padding: 1px 5px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  font-family: "Share Tech Mono", monospace;
+}
+
+[data-theme] .battle-card-cost {
+  background: radial-gradient(circle at 35% 30%, var(--card-cost-bg-from), var(--card-cost-bg-to));
+  border: 2px solid var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+[data-theme] .battle-card--attack .battle-card-cost {
+  border-color: #ff006e;
+  color: #ff8fab;
+}
+
+[data-theme] .battle-card--skill .battle-card-cost {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+[data-theme] .battle-card--power .battle-card-cost {
+  border-color: var(--title-g1);
+  color: var(--title-g1);
+}
+
+[data-theme] .shop-card {
+  border-color: var(--neon);
+  background: linear-gradient(160deg, var(--player-from) 0%, var(--player-to) 100%);
+}
+
+[data-theme] .shop-card:hover {
+  border-color: var(--neon-alt);
+  box-shadow: 0 0 28px var(--accent-glow);
+}
+
+[data-theme] .shop-card-price {
+  color: var(--neon);
+  background: color-mix(in srgb, var(--neon) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon) 30%, transparent);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-family: "Share Tech Mono", monospace;
+}
+
+[data-theme] .battle-card--attack .battle-card-desc {
+  color: #ff8fab;
+}
+
+[data-theme] .battle-card--skill .battle-card-desc {
+  color: var(--accent-secondary);
+}
+
+[data-theme] .battle-card--power .battle-card-desc {
+  color: var(--title-g1);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--title-g1) 40%, transparent);
+}
+
+[data-theme] .power-badge {
+  background: linear-gradient(135deg, var(--power-from), var(--power-to));
+  border: 1px solid color-mix(in srgb, var(--neon) 40%, transparent);
+}
+
+[data-theme] .reward-card {
+  border-color: var(--neon);
+}
+
+[data-theme] .reward-card:hover {
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+[data-theme] .enemy-targetable {
+  box-shadow: 0 0 0 2px var(--target-enemy), 0 0 24px var(--target-enemy-glow);
+}
+
+[data-theme] .pupa-targetable {
+  border-color: var(--neon-alt) !important;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+[data-theme] .deck-view-btn:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+[data-theme] .game-over-panel {
+  border-color: var(--neon);
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+
+[data-theme] .game-over-title {
+  color: var(--neon);
+  text-shadow: 0 0 16px var(--accent-glow);
+}
+
+[data-theme] .mission-card-image {
+  background: linear-gradient(135deg, var(--mission-from) 0%, var(--mission-mid) 50%, var(--mission-to) 100%);
+}
+
+[data-theme] .mission-card:not(.locked):hover .mission-card-image {
+  background: linear-gradient(
+    135deg,
+    var(--mission-hover-from) 0%,
+    var(--mission-hover-mid) 40%,
+    var(--mission-hover-to) 100%
+  );
+}
+
+[data-theme] .status-mark {
+  background: color-mix(in srgb, var(--accent-secondary) 20%, transparent);
+  color: var(--accent-secondary);
+  border: 1px solid color-mix(in srgb, var(--accent-secondary) 40%, transparent);
+}
